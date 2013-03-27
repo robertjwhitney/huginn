@@ -58,5 +58,12 @@ module Huginn
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Prevent the Rails environment to be loaded when the assets:precompile task is executed
+    # If deploying to heroku, initialize_on_precompile must be false
+    # or the Rails application will try to connect to an unexisting database
+    # See: http://www.simonecarletti.com/blog/2012/02/heroku-and-rails-3-2-assetprecompile-error/
+    config.assets.initialize_on_precompile = false
+    
   end
 end
